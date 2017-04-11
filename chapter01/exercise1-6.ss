@@ -36,8 +36,8 @@
 ;; 
 ;; The (new-if) procedure uses the (cond) procedure in place of the
 ;; (if) special form. Since the (cond) condition evaluates the
-;; else-clause regardless if the predicate is true the (sqrt-iter)
-;; procedure is called infinitely. The (if) special form would have
-;; eventually returned the consequent without evaluating the
-;; alternative breaking the infinite loop.
+;; else-clause regardless if the predicate is true or not, the
+;; (sqrt-iter) procedure is called infinitely. The (if) special form
+;; would have eventually returned the consequent without evaluating
+;; the alternative breaking the infinite loop.
 
