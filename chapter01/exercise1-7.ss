@@ -50,3 +50,36 @@
 ;; This is once again because of the given tolerance of 0.001, the
 ;; (good-enough?) procedure takes too long finding a square that
 ;; differs less than this amount.
+
+
+;; Refine (good-enough?) to watch how 'guess' changes from one
+;; iteration to the next and stop when the 'change' differs by less
+;; than 0.001.
+
+(define (sqrt x)
+  (sqrt-iter 1.0 x 0))
+
+(define (sqrt-iter guess x change)
+  (if (good-enough? guess change)
+      guess
+      (sqrt-iter (improve guess x) x guess)))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y)
+  (/ (+ x y) 2))
+
+;; Compute the difference between the last guess and current
+;; guess. Make sure the recursive call to (sqrt-iter) uses guess (that
+;; is the previous guess) in place of the change symbol.
+(define (good-enough? guess change)
+  (< (abs (- guess change)) 0.001))
+
+;; Test on 0.001
+(sqrt 0.001)
+;; returns .03162278245070105
+
+;; Test on 123456891011121314
+(sqrt 123456891011121314)
+;; returns 351364328.0287874 (without delay)
