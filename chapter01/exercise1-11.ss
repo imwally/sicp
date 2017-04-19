@@ -1,0 +1,17 @@
+;; Exercise 1.11
+;;
+;; A function (f) is defined by the rule that
+;;         
+;; f(n) = n if n < 3,
+;;        f(n - 1) + 2f(n - 2) + 3f(n - 3) if n >= 3
+;;
+;; Write a procedure that computes (f) by means of a recursive
+;; process. Write procedure that computes (f) by means of an iterative
+;; process.
+
+(define (f-recur n)
+  (if (< n 3)
+      n
+      (+ (f-recur (- n 1))
+	 (* (f-recur (- n 2)) 2)
+	 (* (f-recur (- n 3)) 3))))
