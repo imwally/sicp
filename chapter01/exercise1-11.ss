@@ -15,3 +15,12 @@
       (+ (f-recur (- n 1))
 	 (* (f-recur (- n 2)) 2)
 	 (* (f-recur (- n 3)) 3))))
+
+(define (f-iter n)
+  (f-iter-begin 2 1 0 n))
+
+(define (f-iter-begin a b c count)
+  (if (< count 3)
+      a
+      (f-iter-begin (+ a (* b 2) (* c 3)) a b (- count 1))))
+
