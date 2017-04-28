@@ -73,3 +73,10 @@
 ;;                                                                               .      .
 ;;                                                                               .      .
 ;;                                                                        (cc 1 0)      (cc 0 1)
+;;
+;; The space required to run cc is proportional to n. The max depth of
+;; the tree is n, so the space required is O(n).
+;;
+;; For any n larger than 0 cc calls itself twice. The steps required
+;; to compute cc grows exponentially with n, so the steps required
+;; is O(n^2).
