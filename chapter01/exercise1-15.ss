@@ -25,5 +25,5 @@
 ;;
 ;; a: 5
 ;;
-;; b: each call to sine is divided by 3.0, therefore the order of
-;; growth in space and steps is O(log n)
+;; b: Each call to sine is divided by 3.0, therefore the order of
+;; growth in space and steps is O(log n).
